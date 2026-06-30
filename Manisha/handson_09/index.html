@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header role="banner">
+    <!-- aria-label added to nav for screen readers -->
+    <span class="site-name">Student Portal</span>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Grades</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <section id="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Welcome to the Student Portal</h1>
+      <p>Your one-stop destination to manage courses, grades, and your profile.</p>
+      <button aria-label="Explore available courses">Explore Courses</button>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar" role="region" aria-label="Student statistics">
+        <div class="stat-item">
+          <span class="stat-number" aria-label="3 courses enrolled">3</span>
+          <span class="stat-label">Courses Enrolled</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" aria-label="GPA 3.8">3.8</span>
+          <span class="stat-label">GPA</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" aria-label="Semester 6">6</span>
+          <span class="stat-label">Semester</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses" aria-labelledby="courses-heading">
+      <h2 id="courses-heading">Available Courses</h2>
+
+      <div class="controls">
+        <!-- label associated with input via for/id -->
+        <label for="search-courses">Search Courses</label>
+        <input
+          type="text"
+          id="search-courses"
+          placeholder="Search courses..."
+          aria-label="Search courses by name"
+        />
+        <button id="sort-btn" aria-label="Sort courses by credits">
+          Sort by Credits
+        </button>
+      </div>
+
+      <!-- aria-live announces search result count to screen readers -->
+      <p
+        id="results-count"
+        role="status"
+        aria-live="polite"
+        class="results-count"
+      ></p>
+
+      <div class="course-grid" role="list" aria-label="Course list"></div>
+
+      <div id="selected-course" aria-live="polite"></div>
+      <p id="total-credits"></p>
+
+    </section>
+
+    <section id="notifications" aria-labelledby="notifications-heading">
+      <h2 id="notifications-heading">Notifications</h2>
+      <div id="notifications-list"></div>
+      <button
+        id="retry-btn"
+        style="display:none;"
+        aria-label="Retry loading notifications"
+      >
+        Retry
+      </button>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 Student Portal. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
